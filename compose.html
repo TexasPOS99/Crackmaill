@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เขียนข้อความ - Crackmaill</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <h1>✉️ เขียนข้อความใหม่</h1>
+            </div>
+            <div class="header-right">
+                <button id="backBtn" class="btn-secondary">
+                    ← กลับ
+                </button>
+            </div>
+        </header>
+
+        <div class="compose-container">
+            <form id="composeForm" class="compose-form">
+                <div class="form-group">
+                    <label for="subject">หัวเรื่อง:</label>
+                    <input type="text" id="subject" name="subject" required placeholder="กรอกหัวเรื่องข้อความ">
+                </div>
+
+                <div class="form-group">
+                    <label for="body">เนื้อหา:</label>
+                    <textarea id="body" name="body" required placeholder="กรอกเนื้อหาข้อความ..." rows="10"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>ส่งไปยังบัญชี Gmail:</label>
+                    <div id="recipientList" class="recipient-list">
+                        <!-- Gmail accounts will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="send-limit-info">
+                    <p>⚠️ จำกัดการส่งได้ 1 ครั้งต่อวัน</p>
+                    <p id="lastSentInfo" class="last-sent"></p>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="sendBtn" class="btn-primary">
+                        📤 ส่งข้อความ
+                    </button>
+                    <button type="button" id="cancelBtn" class="btn-secondary">
+                        ❌ ยกเลิก
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>กำลังส่งข้อความ...</p>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="gmail.js"></script>
+    <script src="ui.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCompose();
+        });
+    </script>
+</body>
+</html>

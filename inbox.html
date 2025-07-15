@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - Crackmaill</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <h1>📬 CRACKMAILL</h1>
+                <span id="accountCount" class="account-count">0 บัญชี</span>
+            </div>
+            <div class="header-right">
+                <button id="addAccountBtn" class="btn-secondary">
+                    ➕ เพิ่มบัญชี Gmail
+                </button>
+                <button id="refreshBtn" class="btn-primary">
+                    🔄 รีเฟรช
+                </button>
+                <button id="composeBtn" class="btn-compose">
+                    ✉️ เขียนข้อความ
+                </button>
+                <button id="logoutBtn" class="btn-logout">
+                    🚪 ออกจากระบบ
+                </button>
+            </div>
+        </header>
+
+        <div class="filter-bar">
+            <h3>🎯 กรองตามผู้ส่ง:</h3>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">ทั้งหมด</span>
+                <span class="filter-tag" data-filter="@shopee.co.th">Shopee</span>
+                <span class="filter-tag" data-filter="@lazada.co.th">Lazada</span>
+                <span class="filter-tag" data-filter="@google.com">Google</span>
+                <span class="filter-tag" data-filter="welovename123@gmail.com">Special</span>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">เมลทั้งหมด:</span>
+                <span id="totalEmails" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">เมลใหม่:</span>
+                <span id="newEmails" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">อัปเดตล่าสุด:</span>
+                <span id="lastUpdate" class="stat-value">-</span>
+            </div>
+        </div>
+
+        <div id="loadingIndicator" class="loading">
+            <div class="spinner"></div>
+            <p>กำลังโหลดข้อมูล...</p>
+        </div>
+
+        <div id="emailContainer" class="email-container">
+            <!-- Email cards will be inserted here -->
+        </div>
+
+        <div id="noEmails" class="no-emails" style="display: none;">
+            <h3>📭 ไม่พบเมลที่ตรงกับเงื่อนไข</h3>
+            <p>ลองเพิ่มบัญชี Gmail หรือเปลี่ยนตัวกรอง</p>
+        </div>
+    </div>
+
+    <!-- Notification popup -->
+    <div id="notification" class="notification">
+        <span id="notificationText"></span>
+        <button id="closeNotification">✕</button>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="gmail.js"></script>
+    <script src="ui.js"></script>
+    <script>
+        // Initialize inbox page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeInbox();
+        });
+    </script>
+</body>
+</html>
