@@ -1,7 +1,7 @@
 // OAuth 2.0 Authentication Handler
 class AuthManager {
     constructor() {
-        this.clientId = '1081164679307-tv2pllpf3sdb0b4tqit4jf46bcm89su6.apps.googleusercontent.com';
+        this.clientId = '1081164679307-gp4f7rg01vpuecbtvbhatdq571gou57b.apps.googleusercontent.com';
         this.redirectUri = window.location.origin + window.location.pathname;
         this.scope = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send';
         this.mainAccountKey = 'crackmaill_main_account';
